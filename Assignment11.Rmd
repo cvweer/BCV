@@ -63,7 +63,9 @@ Each week consists of 1, 2, or 3 subquestions. The total amount of points you ca
 1.  Find the dataset “movies4.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? \textbf{[4 points]}
 
 ```{r}
-#WRITE YOUR CODE HERE
+install.packages("readr")
+library(readr)
+read_tsv("movies4.tsv")
 ```
 
 **Your Answer:**
