@@ -191,38 +191,63 @@ This shows that making money in the movies industry is risky, as the bottom 50% 
 *Step d*
 
 ```{r}
+movies4 = read_tsv("movies4.tsv")
+movies4 = movies4 %>%
+  mutate(profits=revenue-budget)
+movies4 =movies4%>%
+  mutate(log_profits=log(profits))
 
-#WRITE YOUR CODE HERE
-
+movies4%>%
+  summarise(mean(log_profits, na.rm=T))
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+Where profit is 0, the log is -inf.
+
+Where profit is negative, the log is NaN
+
+The mean results in NaN, and the mean with na.rm=T results in -inf
 
 *Step e*
 
 ```{r}
+movies4=read_tsv("movies4.tsv")
+movies4=movies4%>%
+  mutate(profits=revenue-budget)%>%
+  mutate(log_profits = ifelse(profits <= 0, NA, log(profits)))
+movies4
 
-#WRITE YOUR CODE HERE
+movies4%>%
+  summarise(mean(log_profits, na.rm=T))
+
+ggplot(movies4, aes(y=log_profits)) +
+  geom_boxplot()
+
+
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+Mean of log of profits = 17.33131
+
+This boxplot seems to have less extreme outliers.
 
 *Step f*
 
 ```{r}
 
-#WRITE YOUR CODE HERE
+ggplot(movies4, aes(x=runtime, y=vote_average)) +
+  geom_point()
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+There seems to be a slight correlation between runtime and higher average votes, as the points at the relatively shorter runtime of 100 are more dense around the 5.0 to 7.0 ratings, while the point at the relatively longer runtime of 125 to 150 minutes seem to be more dense around the 6.5 to 7.5 range.
+
+
 
 # Week 2 
 1 Is your dataset movies4.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]}
