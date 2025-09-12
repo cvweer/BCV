@@ -70,8 +70,11 @@ library(readr)
 movies4 = read_tsv("movies4.tsv")
 movies4 %>%
   count(index)
+movies4
 #808 observations
 #19 variables
+#19 subjects
+#A subject consists of a multitude of information about a movie, from the title to the release year to the head actor to the vote average.
 ```
 
 **Your Answer:**
@@ -82,12 +85,23 @@ Write your response here.
 2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); interval; (iv) ratio. If present, name one example of such a variable present in your data set. \textbf{[4 points]}
 
 ```{r}
-#WRITE YOUR CODE HERE
+#Nominal variables: keywords, original_language, title, genre, first_actor, first_actor_gender, director_first_name, director_gender
+
+#Ordinal variables: NA
+
+#Interval variables: index, release_date, release_year, release_month, release_day
+
+#Ratio variables: budget, popularity, revenue, runtime, vote_average, vote_count 
 ```
 
 **Your Answer:**
+Nominal variables: keywords, original_language, title, genre, first_actor, first_actor_gender, director_first_name, director_gender
 
-Write your response here.
+Ordinal variables: NA
+
+Interval variables: index, release_date, release_year, release_month, release_day
+
+Ratio variables: budget, popularity, revenue, runtime, vote_average, vote_count 
 
 
 3. A movie studio wants to know which types of movies give maximal profit. Perform the following steps to provide the movie studio with an analysis which corresponds to their request:
@@ -104,38 +118,75 @@ For each step, you should provide first all the code you used to answer the ques
 *Step a*
 
 ```{r}
+movies4 = read_tsv("movies4.tsv")
+movies4 = movies4 %>%
+  mutate(profits=revenue-budget)
 
-#WRITE YOUR CODE HERE
+profit_summary = movies4 %>%
+  summarise(mean_profit=mean(profits, na.rm=T),
+            median_profit=median(profits, na.rm=T),
+            max_profit=max(profits, na.rm=T),
+            min_profit=min(profits, na.rm=T)
+            )
+profit_summary
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+mean_profit = 52885669
+median_profit = 0
+max_profit = 1299557910
+min_profit = -1.5e+08
 
 *Step b*
 
 ```{r}
+movies4 = read_tsv("movies4.tsv")
 
-#WRITE YOUR CODE HERE
+movies4 = movies4 %>%
+  mutate(profits=revenue-budget)
+
+movies4_highest = movies4 %>%
+  filter(profits==max(profits, na.rm=T))%>%
+  select(title, profits)
+movies4_highest
+
+movies4_lowest = movies4 %>%
+  filter(profits==min(profits, na.rm=T))%>%
+  select(title, profits)
+movies4_lowest
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+Highest profits: The Avengers, profits=1299557910
+Lowest profits: The wolfman, profits=-1.5e+08 (-$150 million)
 
 *Step c*
 
 ```{r}
+library (ggplot2)
 
-#WRITE YOUR CODE HERE
+ggplot(movies4, aes(x = title, y = profits)) +
+  geom_boxplot() +
+  labs(title="Movie Profits",
+       y="Profit")
+boxplot_profits
 
+quartiles = quantile(movies4$profits)
+quartiles
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+Q1: -1849854
+Q2: 0
+Q3: 49711134
+Q4: 12999557910
+
+This shows that making money in the movies industry is risky, as the bottom 50% is in loss or break even, while the top 25% is in massive profits.
 
 *Step d*
 
