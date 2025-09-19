@@ -379,14 +379,27 @@ b. Now, assume that the variance of *runtime* amongst thriller movies in your da
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+library(tidyverse)
+library(readr)
+movies4
+movies_thriller <- movies4 %>%
+  filter(genre=="Thriller")%>%
+  summarise(
+    n=n(),
+    mean_runtime=mean(runtime, na.rm=T),
+    sd_runtime=sd(runtime, na.rm=T),
+    se=sd_runtime/sqrt(n()),
+    t_critical=qt(0.995, df=n-1),
+    ci_lower=mean_runtime-t_critical*se,
+    ci_upper=mean_runtime+t_critical*se)%>%
+  print()
 
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+According to this 99% confidence interval, the runtime of the movies in the Thriller genre is reasonably consistent, as the confidence interval is pretty narrow, going from 100.55 to 109.90. 
 
 *step b*
 
