@@ -278,19 +278,23 @@ head(y,2)
 ```
 
 **Your Answer:**
-
-Write your formulated response here.
-
+Bruce Willis and we pulled the top 2 rows to confirm that there isnt annyone with the same ammount of movies
 *step b*
 
 ```{r}
 #WRITE YOUR CODE HERE
+z<- x%>%
+  group_by(first_actor)%>%
+  summarise(mean_r = mean(revenue, na.rm = TRUE))
+z = slice(z, -(1:64))
+head(z,1)
 
+mean(x$revenue)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+The avarage revenue of bruce willis is 255652124 this lies above the avarage revenue of 82727855
 
 *step c*
 
@@ -301,7 +305,7 @@ Write your formulated response here.
 
 **Your Answer:**
 
-Write your formulated response here.
+according to the law of lare numbers, the higher ammount of observations will give a more accuarate value. since bruce willis has a relatively high ammount of observations, our observation from 2b is quite trust worthy
 
 3 For this question, you will assume that your data set is the full population. 
 
