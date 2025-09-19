@@ -318,7 +318,14 @@ e. In your opinion, is a sample of 25 movies sufficient to get a reliable estima
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+library(tidyverse)
+
+movies4 <- movies4 %>%
+  mutate(profit_in_millions = profits / 1000000)
+
+variance <- var(movies4$profit_in_millions)
+
+variance
 
 ```
 
@@ -329,14 +336,17 @@ Write your formulated response here.
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
+set.seed(56564)
+movies_sample <- movies4[sample(nrow(movies4), 25), ]
+
+variance_sample <- var(movies_sample$profit_in_millions)
+
+variance_sample
+
+variance
 
 ```
-
-**Your Answer:**
-
-Write your formulated response here.
-
+The variance of the sample is significantly higher than in the origninal data set. This because 
 *step c*
 
 ```{r}
