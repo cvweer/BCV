@@ -254,8 +254,7 @@ There seems to be a slight correlation between runtime and higher average votes,
 
 **Your Answer:**
 
-Write your formulated response here.
-
+The dataset is a sample of a larger population. It does not represent the full population of movies. The full population would consist of all movies released worldwide, covering a wide variety of genres, budgets, release years, and popularity levels.
 
 2
 
@@ -267,6 +266,14 @@ c.  How trustworthy do you consider your conclusion to answer 2b? Use the term "
 
 ```{r}
 #WRITE YOUR CODE HERE
+library(tidyverse)
+
+y<- x %>%
+  group_by(first_actor)%>%
+  count(first_actor)%>%
+  arrange(desc(n))
+
+head(y,2)
 
 ```
 
