@@ -350,7 +350,13 @@ The variance of the sample is significantly higher than in the origninal data se
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+sample_vars<- c()
+for(i in 1:100){
+  mov_samp<- slice_sample(movies4, n=25)
+  sample_vars[i]<- var(mov_samp$profit_in_millions)
+  
+}
+print(sample_vars)
 
 ```
 
@@ -361,7 +367,8 @@ Write your formulated response here.
 *step d*
 
 ```{r}
-#WRITE YOUR CODE HERE
+
+hist(sample_vars)
 
 ```
 
