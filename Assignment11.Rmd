@@ -252,7 +252,6 @@ There seems to be a slight correlation between runtime and higher average votes,
 # Week 2 
 1 Is your dataset movies4.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]}
 
-**Your Answer:**
 
 The dataset is a sample of a larger population. It does not represent the full population of movies. The full population would consist of all movies released worldwide, covering a wide variety of genres, budgets, release years, and popularity levels.
 
@@ -278,7 +277,8 @@ head(y,2)
 ```
 
 **Your Answer:**
-Bruce Willis and we pulled the top 2 rows to confirm that there isnt annyone with the same ammount of movies
+Bruce Willis is the actor who plays in the most movies in the data set. We pulled the top 2 rows to confirm that there is not any other actor with the same amount of movies.
+
 *step b*
 
 ```{r}
@@ -289,22 +289,18 @@ z<- x%>%
 z = slice(z, -(1:64))
 head(z,1)
 
-mean(x$revenue)
+mean_revenue = mean(x$revenue)
+mean_revenue
 ```
-
-**Your Answer:**
-
-The avarage revenue of bruce willis is 255652124 this lies above the avarage revenue of 82727855
+The avarage revenue of Bruce Willis is 255652124 this lies above the average revenue of 82727855
 
 *step c*
 
 ```{r}
 mean(y$n)
 ```
+According to the law of large numbers, a higher number of observations leads to a more accurate estimate. Since Bruce Willis has a relatively high number of observations (9 movies, compared to an average of 1.45 movies for other actors), our conclusion from 2b can be considered quite trustworthy.
 
-**Your Answer:**
-
-According to the law of large numbers, the higher amount of observations will lead to a more accurate value. Since Bruce Willis has a relatively high amount of observations (9), our observation from 2b is quite trust worthy.
 
 3 For this question, you will assume that your data set is the full population. 
 
