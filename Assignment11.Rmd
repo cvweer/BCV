@@ -347,6 +347,7 @@ The variance of the sample is significantly higher than in the origninal data se
 *step c*
 
 ```{r}
+
 sample_vars<- c()
 for(i in 1:100){
   mov_samp<- slice_sample(movies4, n=25)
@@ -370,21 +371,19 @@ abline(v=mean(sample_vars),
 abline(v=sd(sample_vars),
        col="blue",
        lwd = 3)
-mean(sample_vars)
-sd(sample_vars)
+cat("mean = ", mean(sample_vars), "\n")
+cat("standard deviation =",sd(sample_vars))
 
 ```
 
 **Your Answer:**
 
-the mean is 22179.67 and the standard deviation is 20579.04. The histogram is right skewed
+the mean and the standard deviation can be found in the console. The histogram is right skewed
 
 *step e*
 
 **Your Answer:**
-
-Write your formulated response here.
-
+since the variances vary a lot, this shows that estimates depend greatly on which movies are chosen. so a sample size of 25 is not enough to get reliable estimates
 **Your answer here**
 
 # Week 3 
