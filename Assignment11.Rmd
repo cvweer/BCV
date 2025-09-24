@@ -364,12 +364,20 @@ Write your formulated response here.
 
 ```{r}
 hist(sample_vars)
+abline(v=mean(sample_vars),
+              col = "red",
+              lwd = 3)
+abline(v=sd(sample_vars),
+       col="blue",
+       lwd = 3)
+mean(sample_vars)
+sd(sample_vars)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+the mean is 22179.67 and the standard deviation is 20579.04. The histogram is right skewed
 
 *step e*
 
