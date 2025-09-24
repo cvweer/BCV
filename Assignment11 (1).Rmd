@@ -169,7 +169,7 @@ Lowest profits: The wolfman, profits=-1.5e+08 (-$150 million)
 ```{r}
 library (ggplot2)
 
-ggplot(movies4, aes(x = title, y = profits)) +
+boxplot_profits<-ggplot(movies4, aes(x = title, y = profits)) +
   geom_boxplot() +
   labs(title="Movie Profits",
        y="Profit")
@@ -252,7 +252,6 @@ There seems to be a slight correlation between runtime and higher average votes,
 # Week 2 
 1 Is your dataset movies4.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]}
 
-**Your Answer:**
 
 The dataset is a sample of a larger population. It does not represent the full population of movies. The full population would consist of all movies released worldwide, covering a wide variety of genres, budgets, release years, and popularity levels.
 
@@ -278,7 +277,8 @@ head(y,2)
 ```
 
 **Your Answer:**
-Bruce Willis and we pulled the top 2 rows to confirm that there isnt annyone with the same ammount of movies
+Bruce Willis is the actor who plays in the most movies in the data set. We pulled the top 2 rows to confirm that there is not any other actor with the same amount of movies.
+
 *step b*
 
 ```{r}
@@ -289,23 +289,18 @@ z<- x%>%
 z = slice(z, -(1:64))
 head(z,1)
 
-mean(x$revenue)
+mean_revenue = mean(x$revenue)
+mean_revenue
 ```
-
-**Your Answer:**
-
-The avarage revenue of bruce willis is 255652124 this lies above the avarage revenue of 82727855
+The avarage revenue of Bruce Willis is 255652124 this lies above the average revenue of 82727855
 
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
-
+mean(y$n)
 ```
+According to the law of large numbers, a higher number of observations leads to a more accurate estimate. Since Bruce Willis has a relatively high number of observations (9 movies, compared to an average of 1.45 movies for other actors), our conclusion from 2b can be considered quite trustworthy.
 
-**Your Answer:**
-
-according to the law of lare numbers, the higher ammount of observations will give a more accuarate value. since bruce willis has a relatively high ammount of observations, our observation from 2b is quite trust worthy
 
 3 For this question, you will assume that your data set is the full population. 
 
@@ -331,7 +326,7 @@ variance
 
 **Your Answer:**
 
-Write your formulated response here.
+The variance of the profit in millions in the data set is 20270.56 million. 
 
 *step b*
 
@@ -346,41 +341,49 @@ variance_sample
 variance
 
 ```
-The variance of the sample is significantly higher than in the origninal data set. This because 
+
+**Your Answer:**
+
+The variance of the sample is significantly higher than in the original data set. This because the random sample is less precise. 
+
 *step c*
 
 ```{r}
+set.seed(293)
 sample_vars<- c()
 for(i in 1:100){
   mov_samp<- slice_sample(movies4, n=25)
   sample_vars[i]<- var(mov_samp$profit_in_millions)
   
 }
-print(sample_vars)
-
+print(sample_vars[1:9])
+min(sample_vars)
+max(sample_vars)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+In the different variances of the samples we took you can see a very big difference, the lowest value in the vector is 1598.8 million and the highest variance is 73529.1 million. 
 
 *step d*
 
 ```{r}
-
 hist(sample_vars)
+mean(sample_vars)
+sd(sample_vars)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+In the histogram you can see that the variances of the samples are not normal distributed, and that there are more low values than higher ones. This principles is called right-skewed, meaning that most of the variances are low and a few variances have a way higher variance.
+  The mean of the variances is: 19923.88 million, and the standard deviation is 18251.93 million
 
 *step e*
 
 **Your Answer:**
 
-Write your formulated response here.
+A sample of 25 movies is not reliable, this because the 
 
 **Your answer here**
 
@@ -396,14 +399,27 @@ b. Now, assume that the variance of *runtime* amongst thriller movies in your da
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+library(tidyverse)
+library(readr)
+movies4
+movies_thriller <- movies4 %>%
+  filter(genre=="Thriller")%>%
+  summarise(
+    n=n(),
+    mean_runtime=mean(runtime, na.rm=T),
+    sd_runtime=sd(runtime, na.rm=T),
+    se=sd_runtime/sqrt(n()),
+    t_critical=qt(0.995, df=n-1),
+    ci_lower=mean_runtime-t_critical*se,
+    ci_upper=mean_runtime+t_critical*se)%>%
+  print()
 
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+According to this 99% confidence interval, the runtime of the movies in the Thriller genre is reasonably consistent, as the confidence interval is pretty narrow, going from 100.55 to 109.90. 
 
 *step b*
 

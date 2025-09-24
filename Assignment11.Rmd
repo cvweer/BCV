@@ -326,7 +326,8 @@ variance
 
 **Your Answer:**
 
-20270.56
+The variance of the profit in millions in the data set is 20270.56 million. 
+
 *step b*
 
 ```{r}
@@ -343,28 +344,36 @@ variance
 
 **Your Answer:**
 
-The variance of the sample is significantly higher than in the origninal data set. This because 
+The variance of the sample is significantly higher than in the original data set. This because the random sample is less precise. 
+
 *step c*
 
 ```{r}
+<<<<<<< Updated upstream
 
+=======
+set.seed(293)
+>>>>>>> Stashed changes
 sample_vars<- c()
 for(i in 1:100){
   mov_samp<- slice_sample(movies4, n=25)
   sample_vars[i]<- var(mov_samp$profit_in_millions)
   
 }
-print(sample_vars)
+print(sample_vars[1:9])
+min(sample_vars)
+max(sample_vars)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+In the different variances of the samples we took you can see a very big difference, the lowest value in the vector is 1598.8 million and the highest variance is 73529.1 million. 
 
 *step d*
 
 ```{r}
 hist(sample_vars)
+<<<<<<< Updated upstream
 abline(v=mean(sample_vars),
               col = "red",
               lwd = 3)
@@ -373,17 +382,32 @@ abline(v=sd(sample_vars),
        lwd = 3)
 cat("mean = ", mean(sample_vars), "\n")
 cat("standard deviation =",sd(sample_vars))
+=======
+mean(sample_vars)
+sd(sample_vars)
+>>>>>>> Stashed changes
 
 ```
 
 **Your Answer:**
 
+<<<<<<< Updated upstream
 the mean and the standard deviation can be found in the console. The histogram is right skewed
+=======
+In the histogram you can see that the variances of the samples are not normal distributed, and that there are more low values than higher ones. This principles is called right-skewed, meaning that most of the variances are low and a few variances have a way higher variance.
+  The mean of the variances is: 19923.88 million, and the standard deviation is 18251.93 million
+>>>>>>> Stashed changes
 
 *step e*
 
 **Your Answer:**
+<<<<<<< Updated upstream
 since the variances vary a lot, this shows that estimates depend greatly on which movies are chosen. so a sample size of 25 is not enough to get reliable estimates
+=======
+
+A sample of 25 movies is not reliable, this because the 
+
+>>>>>>> Stashed changes
 **Your answer here**
 
 # Week 3 
