@@ -267,7 +267,7 @@ c.  How trustworthy do you consider your conclusion to answer 2b? Use the term "
 #WRITE YOUR CODE HERE
 library(tidyverse)
 
-y<- x %>%
+y<- movies4 %>%
   group_by(first_actor)%>%
   count(first_actor)%>%
   arrange(desc(n))
@@ -283,13 +283,13 @@ Bruce Willis is the actor who plays in the most movies in the data set. We pulle
 
 ```{r}
 #WRITE YOUR CODE HERE
-z<- x%>%
+z<- movies4%>%
   group_by(first_actor)%>%
   summarise(mean_r = mean(revenue, na.rm = TRUE))
 z = slice(z, -(1:64))
 head(z,1)
 
-mean_revenue = mean(x$revenue)
+mean_revenue = mean(movies4$revenue)
 mean_revenue
 ```
 The avarage revenue of Bruce Willis is 255652124 this lies above the average revenue of 82727855
@@ -432,15 +432,38 @@ According to this 99% confidence interval, the runtime of the movies in the Thri
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
 
+movies4 <- movies4%>%
+  mutate(runtime = ifelse(runtime == 0, NA, runtime))
 
+movies_thrillerb <- movies4 %>%
+  filter(genre == "Thriller")
+
+mean_runtime_thriller = mean(movies_thrillerb$runtime, na.rm = T)
+n = sum(!is.na(movies_thrillerb$runtime))
+sd_thriller = sd(movies_thrillerb$runtime, na.rm = T)
+se_thriller = sd_thriller/ sqrt(n)
+z_value = qnorm(0.995)
+
+lowerbound = mean_runtime_thriller-z_value * se_thriller
+upperbound = mean_runtime_thriller+z_value * se_thriller
+print(c(lowerbound,upperbound))
+
+data.frame(
+  Methode = c("a","b"),
+  Lower = c(movies_thriller$ci_lower, lowerbound),
+  Upper = c(movies_thriller$ci_upper, upperbound)
+)
+
+interval_a = movies_thriller$ci_upper - movies_thriller$ci_lower
+interval_b = upperbound-lowerbound
+
+interval_a > interval_b
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
-
+When runtime is 0 in the dataset this is actually a NA, because a movie can not have 0 run time. When taking this into account we come to the conclusion that the interval of a [100.55,109.90] is bigger than the interval of b [102.16,110.12]. 
 
 2
 
