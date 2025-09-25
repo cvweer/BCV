@@ -505,43 +505,71 @@ d. Write an advice to settle the argument between Bob and Chantal. \textbf{[4 po
 
 ```{r}
 #WRITE YOUR CODE HERE
+movies4 <- movies4%>%
+  mutate(vote_average_rounded = floor(vote_average))
 
+ggplot(movies4, aes(x= vote_average_rounded)) +
+  scale_x_continuous(breaks = seq(0,10, by = 1))+
+  geom_histogram()
+  
 
 ```
-
-**Your Answer:**
-
-Write your formulated response here.
 
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
+movies_mean_per_vote <- movies4 %>%
+  group_by(vote_average_rounded) %>%
+  summarise(Mean_profit_per_vote = mean(profit_in_millions))
 
+ggplot(movies_mean_per_vote, aes(x = vote_average_rounded, y= Mean_profit_per_vote))+
+  scale_x_continuous(breaks = seq(0,10, by = 1), minor_breaks = F)+
+  scale_y_continuous(breaks = seq(-50, 250, 25), limits = c(-25,250)) +
+  labs(x = "Average vote",
+       y = "Profit in millions",
+       title = "Average profit per rating")+
+  geom_point()
+
+movies_mean_per_vote[8,2]
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
-
+Movies rated with an 8 earn the highest profit, on average the profit is 241.18 million euro. 
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+mean_profit_per_year <- movies4%>%
+  group_by(release_year)%>%
+  summarise(mean_profit_per_year = mean(profit_in_millions),
+            n = n(),
+            sd = sd(profit_in_millions),
+            se = sd / sqrt(n),
+            t_value = qt(0.975, df = n-1),
+            lowerbound = mean_profit_per_year - t_value * se,
+            upperbound = mean_profit_per_year + t_value * se,
+            .groups = "drop")
 
-
+ggplot(mean_profit_per_year, aes(x = release_year,y = mean_profit_per_year))+
+  geom_point()+
+  scale_x_continuous(breaks = seq(1990,2016, by = 2))+
+  scale_y_continuous(breaks = seq(-50,350, by = 50))+
+  labs(x = "Release year",
+       y = "Profit in million euro",
+       title = "Mean profit per year with 95% confidence interval")+
+  geom_errorbar(aes(ymin = lowerbound,
+                    ymax = upperbound))
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+The scatterplot shows the mean and the corresponding confidence interval per year.We can conclude out of the plot that some years have a bigger interval than others. 
 
 *step d*
 
 **Your Answer:**
-
-Write your formulated response here.
+Bob and Chantal argued about which movies made the biggest profit. Bob thought that high-quality movies made a bigger profit, while Chantal argued that mediocre movies led to higher profits. Chantal says that movies with a rating of around 5 or 6 will lead to the highest profit, and Bob said that movies with higher quality, a rating of around 7-8 or higher, will lead to higher profits. Upon examining the data, the majority of movies have a rating of around 6. However, upon analyzing the mean profit of movies with a rating of 6, we can conclude that it is significantly lower than that of movies with a rating of 8. Movies with a rating of 6 have around 60 million profit, while movies with a rating of 8 have a profit of 240 million. So to give the movie studio an advise is to focus on higher quality movies and listen to Bob. 
 
 # Week 4 
 
