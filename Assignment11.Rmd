@@ -473,26 +473,51 @@ b. For the validity of your test in 2a, what assumption about the distribution o
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+sample_var = var(movies4$runtime)
+n = length(movies4$runtime)
+H0 = 500
+chi_square = ((n-1)*sample_var)/H0
+a = 0.05
+critl = qchisq(a/2, df=n-1)
+crith = qchisq(1-a/2, df = n-1)
+if (chi2<crit_low|chi2>crit_high){
+  conc = "reject H0"
+}else{
+  conc = "accept H0"
+}
+conc
+
 
 
 ```
 
 **Your Answer:**
-
-Write your formulated response here.
-
+step 1:
+cleary state H0 and HA
+step 2:
+computation of the sample variance and length
+step 3:
+identify the test statistics
+step 4:
+create critical values
+step 5:
+conclude
+H0, the variance of the runtime is 500
+HA, th variance of the runtime in not 500
+test statistics are: H0 =500 and chi_square = ((n-1)*sample_var)/H0
+Conclusion: reject H0, since the variance is significantly different from 500
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
-
+hist(movies4$runtime)
+qqnorm(movies4$runtime)
+qqline(movies4$runtime, col = "red")
 
 ```
 
 **Your Answer:**
+For the chi square test to be valid, the runtime must be normally distributed.
 
-Write your formulated response here.
 
 3. There is an argument going on in the movie studio. *Bob* claims that they should make higher-quality movies, as this will bring in more profits. *Chantal* disagrees. She tells Bob that mediocre movies bring in the most profits. You are asked to advise on who is right.
 
