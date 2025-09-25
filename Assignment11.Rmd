@@ -518,6 +518,8 @@ qqline(movies4$runtime, col = "red")
 **Your Answer:**
 For the chi square test to be valid, the runtime must be normally distributed.
 
+Based on the Plot, the runtime is not normally distributed, as there is a slight left- and right tail deviation and an overall S-shape. This means that the chi square test is not valid.
+
 
 3. There is an argument going on in the movie studio. *Bob* claims that they should make higher-quality movies, as this will bring in more profits. *Chantal* disagrees. She tells Bob that mediocre movies bring in the most profits. You are asked to advise on who is right.
 
