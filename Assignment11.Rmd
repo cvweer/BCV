@@ -1,14 +1,14 @@
 ---
 title: "QRM II Graded Assignment (11), Period 1 2025"
-subtitle: "Material by Sjoerd van Alten and Klervie Toczé"
 author: "Fill in your group number and names here"
-date:  "`r format(Sys.Date(), '%d-%m-%Y')`"
+date: "`r format(Sys.Date(), '%d-%m-%Y')`"
 output:
+  word_document: default
   pdf_document:
     number_sections: true
   html_document:
     df_print: paged
-
+subtitle: Material by Sjoerd van Alten and Klervie Toczé
 header-includes:
 - "\\setcounter{section}{-1}"
 - |
@@ -18,7 +18,6 @@ header-includes:
     showtabs = false,
     breaklines,
     commandchars=\\\{\}
-  }
 format:
   html:
     code-overflow: wrap
@@ -62,7 +61,7 @@ Each week consists of 1, 2, or 3 subquestions. The total amount of points you ca
 
 1.  Find the dataset “movies4.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? \textbf{[4 points]}
 
-```{r}
+```{r echo=FALSE}
 #install.packages("readr")
 #install.packages("tidyverse")
 library(tidyverse)
@@ -117,7 +116,7 @@ For each step, you should provide first all the code you used to answer the ques
 
 *Step a*
 
-```{r}
+```{r echo=FALSE}
 movies4 = read_tsv("movies4.tsv")
 movies4 = movies4 %>%
   mutate(profits=revenue-budget)
@@ -141,7 +140,7 @@ min_profit = -1.5e+08
 
 *Step b*
 
-```{r}
+```{r echo=FALSE}
 movies4 = read_tsv("movies4.tsv")
 
 movies4 = movies4 %>%
@@ -190,7 +189,7 @@ This shows that making money in the movies industry is risky, as the bottom 50% 
 
 *Step d*
 
-```{r}
+```{r include=FALSE}
 movies4 = read_tsv("movies4.tsv")
 movies4 = movies4 %>%
   mutate(profits=revenue-budget)
@@ -473,21 +472,19 @@ b. For the validity of your test in 2a, what assumption about the distribution o
 *step a*
 
 ```{r}
-sample_var = var(movies4$runtime)
-n = length(movies4$runtime)
+sample_var = var(movies4$runtime, na.rm = T)
+n <- sum(!is.na(movies4$runtime))                
 H0 = 500
 chi_square = ((n-1)*sample_var)/H0
 a = 0.05
 critl = qchisq(a/2, df=n-1)
 crith = qchisq(1-a/2, df = n-1)
-if (chi2<crit_low|chi2>crit_high){
+if (chi_square<critl|chi_square>crith){
   conc = "reject H0"
 }else{
   conc = "accept H0"
 }
 conc
-
-
 
 ```
 
