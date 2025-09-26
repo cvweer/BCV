@@ -907,14 +907,20 @@ c.  Now, have a close look at your data frame. Can you find any
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+library(tidyverse)
+movies4$mean_log_budget =ifelse(movies4$budget == 0,0, log(movies4$budget))
+movies4_g_filter = movies4[!is.na(movies4$first_actor_gender),]
 
+
+
+ggplot(movies4_g_filter, aes(x=first_actor_gender, y=mean_log_budget))+
+  stat_summary(fun=mean, geom = 'bar')+
+  stat_summary(fun.movies4 = mean_cl_normal, geom = 'errorbar', width =.5)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
-
+from this bargraph i can conclude that movies with a male as first actor on avarage have a higher budget.
 *step b*
 
 ```{r}
