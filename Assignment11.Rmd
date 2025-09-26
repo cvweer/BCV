@@ -21,6 +21,9 @@ header-includes:
 format:
   html:
     code-overflow: wrap
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -29,37 +32,89 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-This assignment is to be completed in groups of 3-4. Further, all students in your group need to be assigned to the same R tutorial group (Friday's tutorial). You can sign yourself up for a group on Canvas. Please do so \textbf{before the start of your first R tutorial on Friday September 5th.} You can use the Discussion Board in Canvas if you do not have a group yet or if your group is incomplete.
+This assignment is to be completed in groups of 3-4. Further, all
+students in your group need to be assigned to the same R tutorial group
+(Friday's tutorial). You can sign yourself up for a group on Canvas.
+Please do so
+\textbf{before the start of your first R tutorial on Friday September 5th.}
+You can use the Discussion Board in Canvas if you do not have a group
+yet or if your group is incomplete.
 
-The assignment has 5 parts, and each part corresponds to the course material of that week (with the exclusion of week 6, for which there is no R programming material). 
+The assignment has 5 parts, and each part corresponds to the course
+material of that week (with the exclusion of week 6, for which there is
+no R programming material).
 
-You are supposed to hand in these assignments on Canvas at the following dates:
+You are supposed to hand in these assignments on Canvas at the following
+dates:
 
-  - **Deadline 1** *Thursday September 25th, at 23:59pm*: you are supposed to hand in weeks 1, 2, and 3 of this assignment.   This will determine 18\% of your overall course grade
-  - **Deadline 2** *Thursday October 9th, at 23:59pm*: you are supposed to hand in weeks 4, and 5 of this assignment. This will determine 12\% of your overall course grade 
+-   **Deadline 1** *Thursday September 25th, at 23:59pm*: you are
+    supposed to hand in weeks 1, 2, and 3 of this assignment. This will
+    determine 18% of your overall course grade
+-   **Deadline 2** *Thursday October 9th, at 23:59pm*: you are supposed
+    to hand in weeks 4, and 5 of this assignment. This will determine
+    12% of your overall course grade
 
-The R tutorials (each Friday) will consist of two halves. During the first half, you will discuss the tutorial exercises. These can be downloaded separately from Canvas. During the second half, you can work on this graded assignment within your own group. The purpose is that you find out how to work with R for doing statistical analyses by yourself. The tutorial exercises are meant to teach you basic commands to get you started, but to answer the problem sets in this assignment, you might need to research your own solutions, and use functions and commands not described in the tutorial exercises. Learning how to solve your own research problems is integral part of learning R. When you and your group get stuck on how to approach an exercise, the hierarchy in finding your way is as follows:
+The R tutorials (each Friday) will consist of two halves. During the
+first half, you will discuss the tutorial exercises. These can be
+downloaded separately from Canvas. During the second half, you can work
+on this graded assignment within your own group. The purpose is that you
+find out how to work with R for doing statistical analyses by yourself.
+The tutorial exercises are meant to teach you basic commands to get you
+started, but to answer the problem sets in this assignment, you might
+need to research your own solutions, and use functions and commands not
+described in the tutorial exercises. Learning how to solve your own
+research problems is integral part of learning R. When you and your
+group get stuck on how to approach an exercise, the hierarchy in finding
+your way is as follows:
 
--	use the concepts from the tutorial exercises;
-- use the cheat sheets available on Canvas;
--	use Google, YouTube, StackOverflow, or another website;
-- ask the teacher.
+-   use the concepts from the tutorial exercises;
+-   use the cheat sheets available on Canvas;
+-   use Google, YouTube, StackOverflow, or another website;
+-   ask the teacher.
 
-The use of generative AI is \textbf{not} permitted and may result in a grade of 0. See the AI protocol in the course manual for details.
+The use of generative AI is \textbf{not} permitted and may result in a
+grade of 0. See the AI protocol in the course manual for details.
 
-To answer the assignment, you can simply fill out this R markdown document. There are designated places which you can fill with R code. There are also designated spaces for you to answer each question. Often, the structure of an answer will be as follows. First, you type the R code in the designated box. This will show how you analyzed the data to get the answer to the question. Below the box for the R code, you will then summarize your answer to the question, i.e. what are the conclusions that you draw from the data analysis? 
+To answer the assignment, you can simply fill out this R markdown
+document. There are designated places which you can fill with R code.
+There are also designated spaces for you to answer each question. Often,
+the structure of an answer will be as follows. First, you type the R
+code in the designated box. This will show how you analyzed the data to
+get the answer to the question. Below the box for the R code, you will
+then summarize your answer to the question, i.e. what are the
+conclusions that you draw from the data analysis?
 
-When handing in, you are supposed to submit this .Rmd file, and a knitted version of this document. You can knit this document to pdf, word, or html. Knitting to pdf requires you to have a .tex distribution installed on your computer. Knitting to Word requires you to have Word installed. 
+When handing in, you are supposed to submit this .Rmd file, and a
+knitted version of this document. You can knit this document to pdf,
+word, or html. Knitting to pdf requires you to have a .tex distribution
+installed on your computer. Knitting to Word requires you to have Word
+installed.
 
-The exercises are designed such that you should be able to finish the majority of them during the tutorial each week. If you are not able to finish them fully during that time, you are expected to work on it in your own time using the computers on campus or your own device. It is best to meet as a group in-person when working together. If you want to work remotely, github is a good platform to guarantee smooth collaboration. Alternatively, you can email this .Rmd file back and forth to one another as a group, but this is not recommended as it is more cumbersome.
+The exercises are designed such that you should be able to finish the
+majority of them during the tutorial each week. If you are not able to
+finish them fully during that time, you are expected to work on it in
+your own time using the computers on campus or your own device. It is
+best to meet as a group in-person when working together. If you want to
+work remotely, github is a good platform to guarantee smooth
+collaboration. Alternatively, you can email this .Rmd file back and
+forth to one another as a group, but this is not recommended as it is
+more cumbersome.
 
-We encourage you to keep your code blocks, printing statements, and final answers, as short as possible. In any case, there is a page limit of 6 pages per week, which encompasses the total length of this document which consists of the questions, your coding lines, and your answers. When your answers to questions of the respective week exceed this page limit, they will not be graded, resulting in zero points.
+We encourage you to keep your code blocks, printing statements, and
+final answers, as short as possible. In any case, there is a page limit
+of 6 pages per week, which encompasses the total length of this document
+which consists of the questions, your coding lines, and your answers.
+When your answers to questions of the respective week exceed this page
+limit, they will not be graded, resulting in zero points.
 
-Each week consists of 1, 2, or 3 subquestions. The total amount of points you can earn per week is 20 points. 
+Each week consists of 1, 2, or 3 subquestions. The total amount of
+points you can earn per week is 20 points.
 
-# Week 1 
+# Week 1
 
-1.  Find the dataset “movies4.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? \textbf{[4 points]}
+1.  Find the dataset “movies4.tsv” on Canvas. Describe your data set:
+    How many observations does it have. How many variables are there?
+    How many subjects? What consists of a subject? \textbf{[4 points]}
 
 ```{r echo=FALSE}
 #install.packages("readr")
@@ -80,8 +135,10 @@ movies4
 
 Write your response here.
 
-
-2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); interval; (iv) ratio. If present, name one example of such a variable present in your data set. \textbf{[4 points]}
+2.  Which of the following types of variables are present in your data
+    set? (i) nominal; (ii) ordinal; (iii); interval; (iv) ratio. If
+    present, name one example of such a variable present in your data
+    set. \textbf{[4 points]}
 
 ```{r}
 #Nominal variables: keywords, original_language, title, genre, first_actor, first_actor_gender, director_first_name, director_gender
@@ -93,26 +150,52 @@ Write your response here.
 #Ratio variables: budget, popularity, revenue, runtime, vote_average, vote_count 
 ```
 
-**Your Answer:**
-Nominal variables: keywords, original_language, title, genre, first_actor, first_actor_gender, director_first_name, director_gender
+**Your Answer:** Nominal variables: keywords, original_language, title,
+genre, first_actor, first_actor_gender, director_first_name,
+director_gender
 
 Ordinal variables: NA
 
-Interval variables: index, release_date, release_year, release_month, release_day
+Interval variables: index, release_date, release_year, release_month,
+release_day
 
-Ratio variables: budget, popularity, revenue, runtime, vote_average, vote_count 
+Ratio variables: budget, popularity, revenue, runtime, vote_average,
+vote_count
 
+3.  A movie studio wants to know which types of movies give maximal
+    profit. Perform the following steps to provide the movie studio with
+    an analysis which corresponds to their request:
 
-3. A movie studio wants to know which types of movies give maximal profit. Perform the following steps to provide the movie studio with an analysis which corresponds to their request:
+<!-- -->
 
-a. Create the variable profits as the revenue of a movie minus its budget. Report its mean, median, maximum, and minimum. \textbf{[2 points]}
-b. Which movie has the highest profits in your data set and how much are these profits. Which movie has the lowest and how much are its profits? If multiple movies have the exact same highest or lowest profits, give only one example. \textbf{[2 points]}
-c. Create a boxplot of the variable profits. Make sure it has an appropriate title, and appropriate titles and labels for the x- and y-axis. Give Q1, Q2, Q3, and Q4. What does this tell you about the nature of making money in the movies industry? \textbf{[2 points]}
-d. Add a new variable to your data set the log of profits. When creating this variable, what happens to movies for which profits is zero or negative? What then happens when you calculate the mean of log of profits? \textbf{[2 points]}
-e. For movies that have a profit of zero or less, replace log of profits with "NA". What is now the mean of log of profits? Create a boxplot for log of profits, again with an appropriate title, x- and y-axis labels. How does it compare to the boxplot you made under c.)? \textbf{[2 points]}
-f. Create a scatterplot of with the runtime of movies on the x-axis and the average vote of movies on the y-axis. What do you conclude from the scatterplot? Are movies with a longer runtime considered worse or better by the audience, or does the audience not have a preference? Why do you think this is the case? \textbf{[2 points]}  
+a.  Create the variable profits as the revenue of a movie minus its
+    budget. Report its mean, median, maximum, and minimum.
+    \textbf{[2 points]}
+b.  Which movie has the highest profits in your data set and how much
+    are these profits. Which movie has the lowest and how much are its
+    profits? If multiple movies have the exact same highest or lowest
+    profits, give only one example. \textbf{[2 points]}
+c.  Create a boxplot of the variable profits. Make sure it has an
+    appropriate title, and appropriate titles and labels for the x- and
+    y-axis. Give Q1, Q2, Q3, and Q4. What does this tell you about the
+    nature of making money in the movies industry? \textbf{[2 points]}
+d.  Add a new variable to your data set the log of profits. When
+    creating this variable, what happens to movies for which profits is
+    zero or negative? What then happens when you calculate the mean of
+    log of profits? \textbf{[2 points]}
+e.  For movies that have a profit of zero or less, replace log of
+    profits with "NA". What is now the mean of log of profits? Create a
+    boxplot for log of profits, again with an appropriate title, x- and
+    y-axis labels. How does it compare to the boxplot you made under
+    c.)? \textbf{[2 points]}
+f.  Create a scatterplot of with the runtime of movies on the x-axis and
+    the average vote of movies on the y-axis. What do you conclude from
+    the scatterplot? Are movies with a longer runtime considered worse
+    or better by the audience, or does the audience not have a
+    preference? Why do you think this is the case? \textbf{[2 points]}
 
-For each step, you should provide first all the code you used to answer the question and then formulate an answer using full sentences.
+For each step, you should provide first all the code you used to answer
+the question and then formulate an answer using full sentences.
 
 *Step a*
 
@@ -133,9 +216,7 @@ profit_summary
 
 **Your Answer:**
 
-mean_profit = 52885669
-median_profit = 0
-max_profit = 1299557910
+mean_profit = 52885669 median_profit = 0 max_profit = 1299557910
 min_profit = -1.5e+08
 
 *Step b*
@@ -160,8 +241,8 @@ movies4_lowest
 
 **Your Answer:**
 
-Highest profits: The Avengers, profits=1299557910
-Lowest profits: The wolfman, profits=-1.5e+08 (-$150 million)
+Highest profits: The Avengers, profits=1299557910 Lowest profits: The
+wolfman, profits=-1.5e+08 (-\$150 million)
 
 *Step c*
 
@@ -180,12 +261,11 @@ quartiles
 
 **Your Answer:**
 
-Q1: -1849854
-Q2: 0
-Q3: 49711134
-Q4: 12999557910
+Q1: -1849854 Q2: 0 Q3: 49711134 Q4: 12999557910
 
-This shows that making money in the movies industry is risky, as the bottom 50% is in loss or break even, while the top 25% is in massive profits.
+This shows that making money in the movies industry is risky, as the
+bottom 50% is in loss or break even, while the top 25% is in massive
+profits.
 
 *Step d*
 
@@ -244,21 +324,33 @@ ggplot(movies4, aes(x=runtime, y=vote_average)) +
 
 **Your Answer:**
 
-There seems to be a slight correlation between runtime and higher average votes, as the points at the relatively shorter runtime of 100 are more dense around the 5.0 to 7.0 ratings, while the point at the relatively longer runtime of 125 to 150 minutes seem to be more dense around the 6.5 to 7.5 range.
+There seems to be a slight correlation between runtime and higher
+average votes, as the points at the relatively shorter runtime of 100
+are more dense around the 5.0 to 7.0 ratings, while the point at the
+relatively longer runtime of 125 to 150 minutes seem to be more dense
+around the 6.5 to 7.5 range.
 
+# Week 2
 
+1 Is your dataset movies4.tsv the full population, or is it a sample of
+a larger population? If the latter, how would you describe the full
+population? \textbf{[4 points]}
 
-# Week 2 
-1 Is your dataset movies4.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]}
-
-
-The dataset is a sample of a larger population. It does not represent the full population of movies. The full population would consist of all movies released worldwide, covering a wide variety of genres, budgets, release years, and popularity levels.
+The dataset is a sample of a larger population. It does not represent
+the full population of movies. The full population would consist of all
+movies released worldwide, covering a wide variety of genres, budgets,
+release years, and popularity levels.
 
 2
 
-a.  For which actor in your data set do you observe the most movies? \textbf{[2 points]} 
-b.  What is the average revenue of the movie in which this actor plays and does the revenue lie above or below the revenue of an average movie according to your data set? \textbf{[2 points]}  
-c.  How trustworthy do you consider your conclusion to answer 2b? Use the term "law of large numbers" in your explanation. \textbf{[2 points]} 
+a.  For which actor in your data set do you observe the most movies?
+    \textbf{[2 points]}
+b.  What is the average revenue of the movie in which this actor plays
+    and does the revenue lie above or below the revenue of an average
+    movie according to your data set? \textbf{[2 points]}\
+c.  How trustworthy do you consider your conclusion to answer 2b? Use
+    the term "law of large numbers" in your explanation.
+    \textbf{[2 points]}
 
 *step a*
 
@@ -275,8 +367,9 @@ head(y,2)
 
 ```
 
-**Your Answer:**
-Bruce Willis is the actor who plays in the most movies in the data set. We pulled the top 2 rows to confirm that there is not any other actor with the same amount of movies.
+**Your Answer:** Bruce Willis is the actor who plays in the most movies
+in the data set. We pulled the top 2 rows to confirm that there is not
+any other actor with the same amount of movies.
 
 *step b*
 
@@ -291,23 +384,44 @@ head(z,1)
 mean_revenue = mean(movies4$revenue)
 mean_revenue
 ```
-The avarage revenue of Bruce Willis is 255652124 this lies above the average revenue of 82727855
+
+The avarage revenue of Bruce Willis is 255652124 this lies above the
+average revenue of 82727855
 
 *step c*
 
 ```{r}
 mean(y$n)
 ```
-According to the law of large numbers, a higher number of observations leads to a more accurate estimate. Since Bruce Willis has a relatively high number of observations (9 movies, compared to an average of 1.45 movies for other actors), our conclusion from 2b can be considered quite trustworthy.
 
+According to the law of large numbers, a higher number of observations
+leads to a more accurate estimate. Since Bruce Willis has a relatively
+high number of observations (9 movies, compared to an average of 1.45
+movies for other actors), our conclusion from 2b can be considered quite
+trustworthy.
 
-3 For this question, you will assume that your data set is the full population. 
+3 For this question, you will assume that your data set is the full
+population.
 
-a. Recode profits such that it is expressed in millions. What is the variance of the variable profits (in millions) in your data set? \textbf{[2 points]}
-b. Create a new data set, called movies_sample. Make sure that it is a random sample of your data set of 25 movies. What is the variance of profits in this random sample? How does it compare to the variance of profits in 2a? \textbf{[2 points]}
-c. In a for loop, create 100 different samples of 25 movies, as in b, and estimate the variance within each sample. Save the variance of each sample in a vector called sample_vars. So the first position of the vector would have the variance of the first sample, the second position the variance of the second sample, etc. Print the start of this vector. \textbf{[2 points]}
-d. Summarize and make a histogram of sample_vars. What is the mean, standard deviation and shape of its distribution? \textbf{[2 points]}
-e. In your opinion, is a sample of 25 movies sufficient to get a reliable estimate of the population variance of profits, using the sample variance? Explain? \textbf{[2 points]}
+a.  Recode profits such that it is expressed in millions. What is the
+    variance of the variable profits (in millions) in your data set?
+    \textbf{[2 points]}
+b.  Create a new data set, called movies_sample. Make sure that it is a
+    random sample of your data set of 25 movies. What is the variance of
+    profits in this random sample? How does it compare to the variance
+    of profits in 2a? \textbf{[2 points]}
+c.  In a for loop, create 100 different samples of 25 movies, as in b,
+    and estimate the variance within each sample. Save the variance of
+    each sample in a vector called sample_vars. So the first position of
+    the vector would have the variance of the first sample, the second
+    position the variance of the second sample, etc. Print the start of
+    this vector. \textbf{[2 points]}
+d.  Summarize and make a histogram of sample_vars. What is the mean,
+    standard deviation and shape of its distribution?
+    \textbf{[2 points]}
+e.  In your opinion, is a sample of 25 movies sufficient to get a
+    reliable estimate of the population variance of profits, using the
+    sample variance? Explain? \textbf{[2 points]}
 
 *step a*
 
@@ -325,7 +439,8 @@ variance
 
 **Your Answer:**
 
-The variance of the profit in millions in the data set is 20270.56 million. 
+The variance of the profit in millions in the data set is 20270.56
+million.
 
 *step b*
 
@@ -343,7 +458,8 @@ variance
 
 **Your Answer:**
 
-The variance of the sample is significantly higher than in the original data set. This because the random sample is less precise. 
+The variance of the sample is significantly higher than in the original
+data set. This because the random sample is less precise.
 
 *step c*
 
@@ -362,7 +478,9 @@ max(sample_vars)
 
 **Your Answer:**
 
-In the different variances of the samples we took you can see a very big difference, the lowest value in the vector is 1598.8 million and the highest variance is 73529.1 million. 
+In the different variances of the samples we took you can see a very big
+difference, the lowest value in the vector is 1598.8 million and the
+highest variance is 73529.1 million.
 
 *step d*
 
@@ -383,25 +501,41 @@ sd(sample_vars)
 
 **Your Answer:**
 
-In the histogram you can see that the variances of the samples are not normal distributed, and that there are more low values than higher ones. This principles is called right-skewed, meaning that most of the variances are low and a few variances have a way higher variance.
-  The mean of the variances is: 19923.88 million, and the standard deviation is 18251.93 million
+In the histogram you can see that the variances of the samples are not
+normal distributed, and that there are more low values than higher ones.
+This principles is called right-skewed, meaning that most of the
+variances are low and a few variances have a way higher variance. The
+mean of the variances is: 19923.88 million, and the standard deviation
+is 18251.93 million
 
 *step e*
 
 **Your Answer:**
 
-Since the variances vary a lot, this shows that estimates depend greatly on which movies are chosen. so a sample size of 25 is not enough to get reliable estimates
+Since the variances vary a lot, this shows that estimates depend greatly
+on which movies are chosen. so a sample size of 25 is not enough to get
+reliable estimates
 
 **Your answer here**
 
-# Week 3 
+# Week 3
 
-For the next part of the assignment, assume that the movies in your data frame are a random sample of a larger population of movies. 
+For the next part of the assignment, assume that the movies in your data
+frame are a random sample of a larger population of movies.
 
 1
 
-a. Create a new data set that only includes movies that are of the genre "Thriller". For these thriller movies, give a 99 percent confidence interval for the variable *runtime*. Interpret the result. \textbf{[2 points]}
-b. Now, assume that the variance of *runtime* amongst thriller movies in your data is exactly the same as the variance of *runtime* in the population. Under this assumption, give a 99 percent confidence interval for the variable *runtime* among thriller movies. Interpret the result. Is you confidence interval wider or less wide than the one you found under question 1a? Why is that the case? \textbf{[2 points]}
+a.  Create a new data set that only includes movies that are of the
+    genre "Thriller". For these thriller movies, give a 99 percent
+    confidence interval for the variable *runtime*. Interpret the
+    result. \textbf{[2 points]}
+b.  Now, assume that the variance of *runtime* amongst thriller movies
+    in your data is exactly the same as the variance of *runtime* in the
+    population. Under this assumption, give a 99 percent confidence
+    interval for the variable *runtime* among thriller movies. Interpret
+    the result. Is you confidence interval wider or less wide than the
+    one you found under question 1a? Why is that the case?
+    \textbf{[2 points]}
 
 *step a*
 
@@ -426,7 +560,9 @@ movies_thriller <- movies4 %>%
 
 **Your Answer:**
 
-According to this 99% confidence interval, the runtime of the movies in the Thriller genre is reasonably consistent, as the confidence interval is pretty narrow, going from 100.55 to 109.90. 
+According to this 99% confidence interval, the runtime of the movies in
+the Thriller genre is reasonably consistent, as the confidence interval
+is pretty narrow, going from 100.55 to 109.90.
 
 *step b*
 
@@ -462,12 +598,20 @@ interval_a > interval_b
 
 **Your Answer:**
 
-When runtime is 0 in the dataset this is actually a NA, because a movie can not have 0 run time. When taking this into account we come to the conclusion that the interval of a [100.55,109.90] is bigger than the interval of b [102.16,110.12]. 
+When runtime is 0 in the dataset this is actually a NA, because a movie
+can not have 0 run time. When taking this into account we come to the
+conclusion that the interval of a [100.55,109.90] is bigger than the
+interval of b [102.16,110.12].
 
 2
 
-a. Using an appropriate five-step procedure, set up a test for the null hypothesis that the variance of runtime equals $500$. Clearly state your null hypothesis, alternative hypothesis your test statistic, your critical value, and your conclusion. \textbf{[2 points]}
-b. For the validity of your test in 2a, what assumption about the distribution of revenue needs to hold? Make an appropriate plot to test this assumption. What do you conclude? \textbf{[2 points]}
+a.  Using an appropriate five-step procedure, set up a test for the null
+    hypothesis that the variance of runtime equals $500$. Clearly state
+    your null hypothesis, alternative hypothesis your test statistic,
+    your critical value, and your conclusion. \textbf{[2 points]}
+b.  For the validity of your test in 2a, what assumption about the
+    distribution of revenue needs to hold? Make an appropriate plot to
+    test this assumption. What do you conclude? \textbf{[2 points]}
 
 *step a*
 
@@ -488,22 +632,12 @@ conc
 
 ```
 
-**Your Answer:**
-step 1:
-cleary state H0 and HA
-step 2:
-computation of the sample variance and length
-step 3:
-identify the test statistics
-step 4:
-create critical values
-step 5:
-conclude
-H0, the variance of the runtime is 500
-HA, th variance of the runtime in not 500
-test statistics are: H0 =500 and chi_square = ((n-1)*sample_var)/H0
-Conclusion: reject H0, since the variance is significantly different from 500
-*step b*
+**Your Answer:** step 1: cleary state H0 and HA step 2: computation of
+the sample variance and length step 3: identify the test statistics step
+4: create critical values step 5: conclude H0, the variance of the
+runtime is 500 HA, th variance of the runtime in not 500 test statistics
+are: H0 =500 and chi_square = ((n-1)*sample_var)/H0 Conclusion: reject
+H0, since the variance is significantly different from 500* step b\*
 
 ```{r}
 hist(movies4$runtime)
@@ -512,18 +646,34 @@ qqline(movies4$runtime, col = "red")
 
 ```
 
-**Your Answer:**
-For the chi square test to be valid, the runtime must be normally distributed.
+**Your Answer:** For the chi square test to be valid, the runtime must
+be normally distributed.
 
-Based on the Plot, the runtime is not normally distributed, as there is a slight left- and right tail deviation and an overall S-shape. This means that the chi square test is not valid.
+Based on the Plot, the runtime is not normally distributed, as there is
+a slight left- and right tail deviation and an overall S-shape. This
+means that the chi square test is not valid.
 
+3.  There is an argument going on in the movie studio. *Bob* claims that
+    they should make higher-quality movies, as this will bring in more
+    profits. *Chantal* disagrees. She tells Bob that mediocre movies
+    bring in the most profits. You are asked to advise on who is right.
 
-3. There is an argument going on in the movie studio. *Bob* claims that they should make higher-quality movies, as this will bring in more profits. *Chantal* disagrees. She tells Bob that mediocre movies bring in the most profits. You are asked to advise on who is right.
+<!-- -->
 
-a. Create a new variable called vote_average_rounded. Make sure this variable is the same as vote_average, but without any decimals (i.e., a 6.3 becomes a 6, a 8.7 an 8, etc.). Display a histogram of vote_average_rounded. \textbf{[2 points]}
-b. Create a scatter plot with vote_average_rounded on the x axis and the mean of profits within each category of vote_average_rounded on the y-axis. Make sure it has an appropriate title, and appropriate titles and labels for the x- and y-axis. At which rating of movies are profits the highest? \textbf{[3 points]}
-c. Recreate the scatter plot with year on the x axis and mean_profits on the y-axis, but now add bars around each point, indicating the 95\% confidence interval. \textbf{[3 points]}
-d. Write an advice to settle the argument between Bob and Chantal. \textbf{[4 points]}
+a.  Create a new variable called vote_average_rounded. Make sure this
+    variable is the same as vote_average, but without any decimals
+    (i.e., a 6.3 becomes a 6, a 8.7 an 8, etc.). Display a histogram of
+    vote_average_rounded. \textbf{[2 points]}
+b.  Create a scatter plot with vote_average_rounded on the x axis and
+    the mean of profits within each category of vote_average_rounded on
+    the y-axis. Make sure it has an appropriate title, and appropriate
+    titles and labels for the x- and y-axis. At which rating of movies
+    are profits the highest? \textbf{[3 points]}
+c.  Recreate the scatter plot with year on the x axis and mean_profits
+    on the y-axis, but now add bars around each point, indicating the
+    95% confidence interval. \textbf{[3 points]}
+d.  Write an advice to settle the argument between Bob and Chantal.
+    \textbf{[4 points]}
 
 *step a*
 
@@ -560,8 +710,8 @@ movies_mean_per_vote[8,2]
 
 **Your Answer:**
 
-Movies rated with an 8 earn the highest profit, on average the profit is 241.18 million euro. 
-*step c*
+Movies rated with an 8 earn the highest profit, on average the profit is
+241.18 million euro. *step c*
 
 ```{r}
 mean_profit_per_year <- movies4%>%
@@ -588,57 +738,111 @@ ggplot(mean_profit_per_year, aes(x = release_year,y = mean_profit_per_year))+
 
 **Your Answer:**
 
-The scatterplot shows the mean and the corresponding confidence interval per year.We can conclude out of the plot that some years have a bigger interval than others. 
+The scatterplot shows the mean and the corresponding confidence interval
+per year.We can conclude out of the plot that some years have a bigger
+interval than others.
 
 *step d*
 
-**Your Answer:**
-Bob and Chantal argued about which movies made the biggest profit. Bob thought that high-quality movies made a bigger profit, while Chantal argued that mediocre movies led to higher profits. Chantal says that movies with a rating of around 5 or 6 will lead to the highest profit, and Bob said that movies with higher quality, a rating of around 7-8 or higher, will lead to higher profits. Upon examining the data, the majority of movies have a rating of around 6. However, upon analyzing the mean profit of movies with a rating of 6, we can conclude that it is significantly lower than that of movies with a rating of 8. Movies with a rating of 6 have around 60 million profit, while movies with a rating of 8 have a profit of 240 million. So to give the movie studio an advise is to focus on higher quality movies and listen to Bob. 
+**Your Answer:** Bob and Chantal argued about which movies made the
+biggest profit. Bob thought that high-quality movies made a bigger
+profit, while Chantal argued that mediocre movies led to higher profits.
+Chantal says that movies with a rating of around 5 or 6 will lead to the
+highest profit, and Bob said that movies with higher quality, a rating
+of around 7-8 or higher, will lead to higher profits. Upon examining the
+data, the majority of movies have a rating of around 6. However, upon
+analyzing the mean profit of movies with a rating of 6, we can conclude
+that it is significantly lower than that of movies with a rating of 8.
+Movies with a rating of 6 have around 60 million profit, while movies
+with a rating of 8 have a profit of 240 million. So to give the movie
+studio an advise is to focus on higher quality movies and listen to Bob.
 
-# Week 4 
+# Week 4
 
-1. There is another argument going on in the movie studio. *Bob* claims that production budgets are getting out of hand, and that the studio should focus on making cheaper movies. *Chantal* disagrees. She tells Bob that ``Every dollar we spend on movie production is more than offset by the increase in movie profits''. 
+1.  There is another argument going on in the movie studio. *Bob* claims
+    that production budgets are getting out of hand, and that the studio
+    should focus on making cheaper movies. *Chantal* disagrees. She
+    tells Bob that \`\`Every dollar we spend on movie production is more
+    than offset by the increase in movie profits''.
 
-a. Set up a regression model to test Chantal's claim, and estimate it. That is, estimate: $$\text{Profits}_i=\beta_0+\beta_1 \text{Budget}_i +\varepsilon_i.$$ Print a summary of your estimated model. \textbf{[2 points]}
-b. What is the estimated value of $\beta_1$ and how do you interpet it? \textbf{[2 points]}
-c. Test for the null hypothesis that $\beta_1 \geq 0$. Report the p-value and state your conclusion. \textbf{[2 points]} 
-d. Next, estimate the model $$\text{Log Profits}_i=\beta_0+\beta_1 \text{Log Budget}_i +\varepsilon_i.$$ When creating the variables Log Profits and Log Budget, make sure that movies with a Revenue or Budget of zero are assigned the value "NA". Print a summary of your estimated model \textbf{[2 points]}
-e. What is the estimated value of $\beta_1$ and how do you interpet it? \textbf{[2 points]}
-f. Which model has better fit? The level-level model or the log-log model? Explain. \textbf{[2 points]}
-g. Who do you think is correct? Bob or Chantal? What would you advise the movie studio to do? \textbf{[2 points]}
+<!-- -->
+
+a.  Set up a regression model to test Chantal's claim, and estimate it.
+    That is, estimate:
+    $$\text{Profits}_i=\beta_0+\beta_1 \text{Budget}_i +\varepsilon_i.$$
+    Print a summary of your estimated model. \textbf{[2 points]}
+b.  What is the estimated value of $\beta_1$ and how do you interpet it?
+    \textbf{[2 points]}
+c.  Test for the null hypothesis that $\beta_1 \geq 0$. Report the
+    p-value and state your conclusion. \textbf{[2 points]}
+d.  Next, estimate the model
+    $$\text{Log Profits}_i=\beta_0+\beta_1 \text{Log Budget}_i +\varepsilon_i.$$
+    When creating the variables Log Profits and Log Budget, make sure
+    that movies with a Revenue or Budget of zero are assigned the value
+    "NA". Print a summary of your estimated model \textbf{[2 points]}
+e.  What is the estimated value of $\beta_1$ and how do you interpet it?
+    \textbf{[2 points]}
+f.  Which model has better fit? The level-level model or the log-log
+    model? Explain. \textbf{[2 points]}
+g.  Who do you think is correct? Bob or Chantal? What would you advise
+    the movie studio to do? \textbf{[2 points]}
 
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
 
+lm_profit = (lm(movies4$profits ~ movies4$budget))
+summary(lm_profit)
 ```
 
 **Your Answer:**
-
-Write your formulated response here.
 
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
-
+coef(lm_profit)["movies4$budget"]
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+When predicting $\beta_1$ we can conclude one extra dollar spend on
+budget is an extra 2.162 euro in profit.
 
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+summary_lm <- summary(lm_profit)
+
+t_value <- summary_lm$coefficients["movies4$budget", "t value"]
+p_value <- summary_lm$coefficients["movies4$budget", "Pr(>|t|)"]
+
+p_value_one_sided <- p_value / 2
+
+t_value
+p_value_one_sided
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+First, we need to state our hypotheses:
+$H_0: \beta_1 \geq 0$
+$H_A: \beta_1 < 0$
+
+Step 2 – Test statistic
+From the output, the test statistic is:
+$t = 23.75$
+
+Step 3 – Significance level
+We choose $\alpha = 0.05$ (5% significance level).
+
+Step 4 – P-value
+The one-sided p-value is $3.28 \times 10^{-95}$.
+
+Step 5 – Conclusion
+Since the one-sided p-value is far smaller than $\alpha = 0.05$, we reject $H_0$.
+This means there is overwhelming evidence that $\beta_1$ is positive (not negative).
+So, we conclude that a higher budget is significantly associated with higher profits.
 
 *step d*
 
@@ -686,9 +890,19 @@ Write your formulated response here.
 
 2
 
-a. Make a plot with a 95% confidence interval with the mean log of budget on the y-axis, and whether the first actor of the movie is male or female on the x-axis. What do you conclude? \textbf{[2 points]} 
-b. Estimate the following simple OLS model: $log(budget)_i=\beta_0+\beta_1 \text(FirstActorMale)_i + \varepsilon_i.$ Is the estimated coefficient for $\beta_1$ significantly different from zero? How do you interpret its estimate, and how does this relate to your conclusion in 2a? \textbf{[2 points]}
-c. Now, have a close look at your data frame. Can you find any instances of male first actors who are wrongly labeled as being female, or vice versa? What would such mislabelling mean for the coefficient you estimated under 2b? \textbf{[2 points]}
+a.  Make a plot with a 95% confidence interval with the mean log of
+    budget on the y-axis, and whether the first actor of the movie is
+    male or female on the x-axis. What do you conclude?
+    \textbf{[2 points]}
+b.  Estimate the following simple OLS model:
+    $log(budget)_i=\beta_0+\beta_1 \text(FirstActorMale)_i + \varepsilon_i.$
+    Is the estimated coefficient for $\beta_1$ significantly different
+    from zero? How do you interpret its estimate, and how does this
+    relate to your conclusion in 2a? \textbf{[2 points]}
+c.  Now, have a close look at your data frame. Can you find any
+    instances of male first actors who are wrongly labeled as being
+    female, or vice versa? What would such mislabelling mean for the
+    coefficient you estimated under 2b? \textbf{[2 points]}
 
 *step a*
 
@@ -725,17 +939,38 @@ Write your formulated response here.
 
 # Week 5
 
-a. Create a plot of the mean profits by month of release. Do you see any indication that month of release matters to the profits of the movie? \textbf{[2 points]}
-b. Estimate an OLS model which has as dependent variable the log of profits of a movie, and as independent variable the log of budget, a dummy for whether the movie was released in english or not, and a linear term for the month of release. Show a summary of the resulting model and interpret each coefficient. \textbf{[4 points]}
-c. Test for the hypothesis that the coefficient that belongs to month of release is zero. \textbf{[2 points]} 
-d. Based on your plot in a.) do you consider the choice that month of release enters the model linearly under b.) reasonable? Estimate a specification that allows for a more flexible curve. In this new specification, test for the null hypothesis that month of release does not impact profits. This might require testing multiple terms at once. \textbf{[4 points]}
+a.  Create a plot of the mean profits by month of release. Do you see
+    any indication that month of release matters to the profits of the
+    movie? \textbf{[2 points]}
 
-e. One executive at the studio wants to time the release of the movie to a specific month of the year such that they can maximize revenue. Based on your model under d.), What would you advise the movie studio regarding the timing of the release of the movie?  \textbf{[2 points]}
+b.  Estimate an OLS model which has as dependent variable the log of
+    profits of a movie, and as independent variable the log of budget, a
+    dummy for whether the movie was released in english or not, and a
+    linear term for the month of release. Show a summary of the
+    resulting model and interpret each coefficient. \textbf{[4 points]}
 
-The movie studio that you work at is releasing a new movie in 2026. It will be an English-spoken Thriller movie with a budget of 40,000,0000. 
+c.  Test for the hypothesis that the coefficient that belongs to month
+    of release is zero. \textbf{[2 points]}
 
-f. Estimate a model that is able to predict the revenue of this movie. Give its predicted revenue and include a 99% prediction interval.  \textbf{[6 points]}
+d.  Based on your plot in a.) do you consider the choice that month of
+    release enters the model linearly under b.) reasonable? Estimate a
+    specification that allows for a more flexible curve. In this new
+    specification, test for the null hypothesis that month of release
+    does not impact profits. This might require testing multiple terms
+    at once. \textbf{[4 points]}
 
+e.  One executive at the studio wants to time the release of the movie
+    to a specific month of the year such that they can maximize revenue.
+    Based on your model under d.), What would you advise the movie
+    studio regarding the timing of the release of the movie?
+    \textbf{[2 points]}
+
+The movie studio that you work at is releasing a new movie in 2026. It
+will be an English-spoken Thriller movie with a budget of 40,000,0000.
+
+f.  Estimate a model that is able to predict the revenue of this movie.
+    Give its predicted revenue and include a 99% prediction interval.
+    \textbf{[6 points]}
 
 *step a*
 
@@ -794,10 +1029,7 @@ Write your formulated response here.
 
 *step f*
 
-
 ```{r}
 #WRITE YOUR CODE HERE
 
 ```
-
-
